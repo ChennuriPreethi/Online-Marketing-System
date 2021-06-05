@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <link rel="icon" href="~/Images/LOGO background.png" />
+    <link href="~/Stylesheet/AdminLogin_SS.css" rel="stylesheet" />
+    <link href="~/Stylesheet/AdminCategory_SS.css" rel="stylesheet" />
+    <link href="~/Stylesheet/AddProducts_SS.css" rel="stylesheet" />
+    <link href="~/Stylesheet/pagination.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href='@Url.Action("Login", "Admin" ,new { area = "AreaName" })'>
+                    <img style="width:40%;" src="~/Images/LOGO background.png" />
+                </a>
+            </div>
+            <div class="navbar-collapse collapse ">
+                <ul class="nav navbar-nav">
+                    @if (Session["ad_id"] != null)
+                    {
+                        <li>@Html.ActionLink("Category", "Category", "Admin")</li>
+                        <li>@Html.ActionLink("View Category", "ViewCategory", "Admin")</li>
+                        <li>@Html.ActionLink("Add Products", "AdminCreateAdd", "Admin", null, new { @class = "ht" })</li>
+                        <li>@Html.ActionLink("Products", "AdminProducts", "Admin")</li>
+                        //<li>@Html.ActionLink("Orders", "View_Orders", "Admin")</li>
+                        //<li>@Html.ActionLink("Queries", "View_Contact_Us", "Admin")</li>
+                    }
+                </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        @if (Session["ad_id"] != null)
+                        {
+                            <li><a href="@Url.Action("Admin_Page", "Admin")">@Session["ad_name"]</a></li>
+                            <li>@Html.ActionLink("Logout", "LogOut", "Admin", null, new { @class = "ht" })</li>
+                        }
+
+                    </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

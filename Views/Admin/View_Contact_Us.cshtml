@@ -1,0 +1,31 @@
+﻿@model IEnumerable<Royal_Project_3.Models.contact>
+
+@{
+    ViewBag.Title = "View Contact Us";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<body style="font-size: medium;background: #C9FFBF; background: -webkit-linear-gradient(to right, #FFAFBD, #C9FFBF); background: linear-gradient(to right, #FFAFBD, #C9FFBF); font-family: 'Times New Roman', Times, serif; ">
+    <h2 style="text-align:center;color:brown;">QUERIES</h2>
+    
+    <div class="table-bordered table-responsive table-hover">
+        @{
+            WebGrid wbgrid1 = new WebGrid(source: Model, rowsPerPage: 5);
+        }
+
+        @wbgrid1.GetHtml(
+            tableStyle: "table table-responsive",
+            htmlAttributes: new { @id = "wbgrid1" },
+            columns: wbgrid1.Columns(
+                wbgrid1.Column("ID", "ID"),
+                wbgrid1.Column("cname", "Customer Name"),
+                wbgrid1.Column("cmobile", "Mobile"),
+                wbgrid1.Column("cemail", "Email ID"),
+                wbgrid1.Column("cquery", "Query")
+            )
+        )
+        </div>
+</body>
+
+
+

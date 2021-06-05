@@ -1,0 +1,87 @@
+﻿@using PagedList.Mvc
+@model  PagedList.IPagedList<Royal_Project_3.Models.category>
+
+@{
+    Layout = "~/Views/Shared/_LayoutNoFooterUser.cshtml";
+    ViewBag.Title = "Products";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ViewCategory</title>
+    <link href="~/Stylesheet/pagination.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body style="background: #ddd6f3; background: -webkit-linear-gradient(to left, #faaca8, #ddd6f3); background: linear-gradient(to left, #faaca8, #ddd6f3); ">
+    <div class="container" style="height:1150px;font-family:'Times New Roman', Times, serif">
+        <div class="row">
+            <div class="col-lg-12">
+
+                @if (TempData["msg"] != null)
+                {
+                <div class="alert alert-success">
+                    <strong>Success!</strong> @TempData["msg"]
+                </div>
+                }
+
+                @if(@TempData["total"]==null)
+                {
+                    <h4>Total Bill: 0 Rs</h4>
+                }
+                else
+                {
+                    <h4>Total Bill: @TempData["total"] Rs</h4>
+                }
+                
+            </div>
+            <div class="col-lg-10 col-md-10 col-sm-10">
+
+            </div>
+
+                <div class="col-lg-2 col-md-2 col-sm-2">
+                    <h3 style="color:#808080;font-family:'Arial Rounded MT';text-align:center;margin-top:20px;"><span class="btn btn-success btn-lg">@Html.ActionLink("Check Out", "checkout", "User")</span></h3>
+                </div>
+
+               @* <h1 style="text-align:center;margin-top:5%;">PRODUCT CATEGORY</h1>*@
+
+                <div class="row" style="margin-bottom:40px;">
+                    @if (Model != null)
+                    {
+                        foreach (var item in Model)
+                        {
+                            <div class="col-lg-4 col-md-4" style="height:220px;margin-top:150px;">
+                                <img src="@Url.Content(item.cat_image)" style="height:250px;width:100%;" />
+                                <br />
+                                <h4 style="font-size: 30px; color: #808080; font-family: 'Arial Rounded MT'; text-align: center; margin-top: 20px;">@Html.ActionLink(@item.cat_name, "DisplayAdd", new { id = @item.cat_id })</h4>
+                                <br />
+                            </div>
+                        }
+                    }
+                </div>
+
+            </div>
+
+        <div class="row">
+            <div style="margin-top:150px;">
+                <div id="container" style="margin-left:20px">
+                    <p></p>
+                    <p></p>
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4" style="text-align:center;">
+                        <div class="pagination">
+                            Page @(Model.PageCount<Model.PageNumber?0:Model.PageNumber)
+                            of @Model.PageCount @Html.PagedListPager(Model, page => Url.Action("Products", new { page }))
+                        </div>
+                    </div>
+                    <div class="col-md-4"></div>
+                </div>
+            </div>
+        </div>
+        </div>
+</body>
+</html>
+

@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Royal_Project_3.Models.admin_order_view>
+
+@{
+    ViewBag.Title = "View Orders";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<body style="background: #DAD299; background: -webkit-linear-gradient(to right, #B0DAB9, #DAD299);  background: linear-gradient(to right, #B0DAB9, #DAD299);font-family:'Times New Roman', Times, serif; font-size:medium">
+    <br /><br /><h2 style="text-align:center;color:brown;">TOTAL ORDERS</h2>
+    
+    <div class="table-bordered table-responsive table-hover">
+        @{
+            WebGrid wbgrid = new WebGrid(source: Model, rowsPerPage: 10);
+        }
+
+        @wbgrid.GetHtml(
+            tableStyle: "table table-responsive",
+            htmlAttributes: new { @id = "wbgrid" },
+            columns: wbgrid.Columns(
+                wbgrid.Column("u_id", "User ID"),
+                wbgrid.Column("u_name", "User Name"),
+                wbgrid.Column("u_contact", "User Contact"),
+                wbgrid.Column("in_id", "Invoice ID"),
+                wbgrid.Column("in_date", "Invoice Date"),
+                wbgrid.Column("o_fk_pro", "Product ID"),
+                wbgrid.Column("pro_name", "Product Name"),
+                wbgrid.Column("o_qty", "Quantity"),
+                wbgrid.Column("o_unitprice", "Unit Price"),
+                wbgrid.Column("o_bill", "Total Bill")
+            )
+        )
+        </div>
+</body>
+
+
+
+
+
+

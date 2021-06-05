@@ -1,0 +1,112 @@
+﻿@model Royal_Project_3.Models.UserUIClass
+
+@{
+    ViewBag.Title = "Contact";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+<div class="Ccontact">
+    <div class="c-heading">
+        <h2>Contact Us</h2>
+        <hr />
+    </div>
+    <div class="row">
+        <div class="contact">
+            <div class="ccc-h">
+                <div class="col-md-6">
+
+                    <div class="box">
+                        <div class="icon"><i class="fa fa-map-marker" aria-hidden="true"></i></div>
+                        &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+                        <div class="texts">
+                            <h4>Address</h4>
+                            <p>
+                                N0. 56, 1st Street, Kamaraj Nagar, Avadi, Chennai-71
+                            </p>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="icon"><i class="fa fa-phone" aria-hidden="true"></i></div>
+                        &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+                        <div class="texts">
+                            <h4>Phone</h4>
+                            <p>
+                                +91 9043214570, 044-26551213
+                            </p>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="icon"><i class="fa fa-envelope" aria-hidden="true"></i></div>
+                        &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+                        <div class="texts">
+                            <h4>Email</h4>
+                            <p>info@royalicecreams.com</p>
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+            </div>
+
+            <div class="col-md-6">
+
+                <h2>Enquire Now</h2>
+
+                @using (Html.BeginForm("Contact", "User", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-horizontal">
+
+                        <hr />
+                        <div class="Cc-form">
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.cname, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.cname, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter Name" } })
+                                    @Html.ValidationMessageFor(model => model.cname, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.cmobile, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.cmobile, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter Mobile No." } })
+                                    @Html.ValidationMessageFor(model => model.cmobile, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.cemail, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.cemail, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter Email" } })
+                                    @Html.ValidationMessageFor(model => model.cemail, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.cquery, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.TextAreaFor(model => model.cquery, new { @class = "form-control", cols = "50", rows = "5", @placeholder = "Enter Your Query" })
+                                    @Html.ValidationMessageFor(model => model.cquery, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="SUBMIT" style="background: #CAC531;  background: -webkit-linear-gradient(to right, #F3F9A7, #CAC531);  background: linear-gradient(to right, #F3F9A7, #CAC531);" class="btn btn-default" />
+                            </div>
+                        </div>
+                        @Html.ViewData["Message"]
+                    </div>
+
+                }
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+}

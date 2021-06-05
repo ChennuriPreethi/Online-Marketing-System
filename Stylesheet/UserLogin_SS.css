@@ -1,0 +1,12 @@
+﻿.bg-img1 {
+    
+    background-image: url('../Images/doodle-3505459_1920.png');
+    max-width: 100%;
+    height: auto;
+    background-size: cover
+}
+.pad-top1 {
+    font-family: 'Comic Sans MS';
+    padding-top: 10%;
+    margin-top:4%;
+}

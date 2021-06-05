@@ -1,0 +1,142 @@
+﻿/*[1. IMPORT SOURCE]*/
+@import url(font-awesome.css);
+@import url(http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300);
+
+body {
+    margin: 0;
+    padding-bottom: 20px;
+    font-size: 14px;
+    line-height: 16px;
+    color: #333;
+    background: #fff;
+    overflow-x: hidden;
+    scrollbar-face-color: #121212;
+}
+
+/*[Slideshow]*/
+/*CAROUSEL*/
+.main-text {
+    position: absolute;
+    top: 100px;
+    width: 96.66666666666666%;
+    color: #FFF;
+}
+
+.carousel-btns {
+    margin-top: 2em;
+}
+
+    .carousel-btns .btn {
+        width: 150px;
+    }
+
+.carousel-inner .imgOverlay {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.carousel-inner img {
+    width: 100%;
+}
+
+/*CONTROL*/
+.carousel-control {
+    width: auto;
+}
+
+    .carousel-control .icon-prev,
+    .carousel-control .icon-next,
+    .carousel-control .fa-chevron-left,
+    .carousel-control .fa-chevron-right {
+        position: absolute;
+        top: 47%;
+        right: 0;
+        z-index: 5;
+        display: inline-block;
+        background-color: #000;
+        width: 38px;
+        height: 38px;
+        line-height: 40px;
+        font-size: 14px;
+    }
+
+    .carousel-control .icon-prev,
+    .carousel-control .fa-chevron-left {
+        left: 0;
+    }
+
+.carousel-indicators li {
+    width: 12px;
+    height: 12px;
+    margin: 0 1px;
+    border: 2px solid #fff;
+    opacity: .8;
+}
+
+.carousel-indicators .active {
+    background-color: #28ace2;
+    border-color: #28ace2;
+}
+
+.carousel-control .icon-prev, .carousel-control .fa-chevron-left,
+.carousel-control .icon-right, .carousel-control .fa-chevron-right {
+    border-radius: 50px;
+}
+
+
+
+/*Content*/
+
+.how-section1 {
+    margin-top: -15%;
+    padding: 10%;
+}
+
+    .how-section1 h2 {
+        color: #333;
+        font-weight: bold;
+        font-size: 30px;
+    }
+
+    .how-section1 .royal {
+        margin-top: 10%;
+    }
+
+.how-img {
+    text-align: center;
+}
+
+    .how-img img {
+        width: 100%;
+    }
+
+
+
+
+/*About*/
+
+.about-sec {
+    margin-top: -15%;
+    padding: 10%;
+}
+
+    .about-sec h2 {
+        color: #333;
+        font-weight: bold;
+        font-size: 30px;
+    }
+
+    .about-sec .about {
+        margin-top: 10%;
+    }
+
+.about-img {
+    text-align: center;
+}
+
+    .about-img img {
+        width: 100%;
+    }
+

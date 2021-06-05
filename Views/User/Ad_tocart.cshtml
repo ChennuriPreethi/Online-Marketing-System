@@ -1,0 +1,35 @@
+﻿@model Royal_Project_3.Models.product
+@{
+    ViewBag.Title = "Cart";
+    Layout = "~/Views/Shared/_LayoutNoFooterUser.cshtml";
+}
+
+<style>
+    .how-img4 {
+        text-align: center;
+    }
+
+        .how-img4 img {
+            width: 100%;
+            margin-top: 20%
+        }
+</style> 
+<body style="background: #ff6e7f; background: -webkit-linear-gradient(to right, #bfe9ff, #ff6e7f); background: linear-gradient(to right, #bfe9ff, #ff6e7f);">
+    @using (Html.BeginForm())
+    {
+        <div class="row">
+            <div class="col-md-6 how-img4">
+                <img src="@Url.Content(@Model.pro_image)" style="height:300px;" />
+            </div>
+            <div class="col-md-6" style="font-family:'Times New Roman', Times, serif; margin-top:10%;">
+                <h1 style="color:brown">Price: @Model.pro_price</h1>
+                <h2 style="color:brown">Name: @Model.pro_name</h2>
+                @*<h4>Description: @Model.pro_desc</h4>*@
+                <input type="number" name="qty" value="0" id="qty" min="1" max="500" />
+                <input type="submit" name="Submit" class="btn btn-danger" />
+            </div>
+            </div>
+        
+    }
+
+</body>

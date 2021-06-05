@@ -1,0 +1,124 @@
+﻿
+@{
+    ViewBag.Title = "checkout";
+    Layout = "~/Views/Shared/_LayoutNoFooterUser.cshtml";
+
+
+}
+
+
+<body style="font-family: 'Times New Roman', Times, serif; background: #DAE2F8;background: -webkit-linear-gradient(to right, #D6A4A4, #DAE2F8); background: linear-gradient(to right, #D6A4A4, #DAE2F8);">
+    <h1 style="text-align:center;color:brown;">CHECKOUT</h1>
+
+    @if (TempData["cart"] != null)
+    {
+        <table class="table table-responsive">
+            <thead>
+                <tr style="font-size:large">
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Bill</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in TempData["cart"] as List<Royal_Project_3.Models.cart>)
+                {
+                    <tr style="font-size:medium">
+                        <td>@item.pro_id</td>
+                        <td>@item.pro_name</td>
+                        <td>@item.pro_price</td>
+                        <td>@item.o_qty</td>
+                        <td>@item.o_bill</td>
+                        <td>
+                            <a class="btn btn-danger btn-sm" href="@Url.Action("remove", new { id = item.pro_id })">&#10060;</a>
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="4"></td>
+                    <td style="font-size:large;font-weight:bold">@TempData["total"]</td>
+                </tr>
+            </tfoot>
+        </table>
+        @*using (Html.BeginForm("checkout", "User", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            
+
+            <div class="form-horizontal">
+
+                <hr />
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.in_ptype, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(x => x.in_ptype, new { htmlAttributes = new { @class = "form-control", disabled = "true" , @placeholder = "Cash on Delivery" } })
+                            @Html.ValidationMessageFor(x => x.in_ptype, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(x => x.in_addr, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(x => x.in_addr, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter Address" } })
+                        @Html.ValidationMessageFor(x => x.in_addr, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+            </div>
+        }*@
+
+
+
+
+
+
+        @*<table>
+                <tr>
+                    <td>Payment Type</td>
+                    <td>
+                        <select name="PaymentType">
+                            <option value="cod">COD</option>
+                            <option value="upi" disabled>UPI</option>
+                            <option value="cd" disabled>Credit Card</option>
+                            <option value="dc" disabled>Debit Card</option>
+                        </select>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Ship to</td>
+                    <td><textarea name="message" rows="3" cols="30"></textarea></td>
+                </tr>
+            </table>*@
+
+    }
+    else
+    {
+        <div class="bg4">
+            <img src="~/Images/2_anim.gif" style="width:60%; height:450px" />
+            <div class="bg4_text">
+                <p>Cart is Empty</p>
+                @Html.ActionLink("Back", "Products", "User")
+            </div>
+        </div>
+    }
+
+
+    @if (TempData["cart"] != null)
+    {
+        using (Html.BeginForm())
+        {
+            <input type="submit" value="Shop Now" class="btn btn-primary" />
+        }
+    }
+
+
+</body>

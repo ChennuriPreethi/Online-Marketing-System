@@ -1,0 +1,125 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <link rel="icon" href="~/Images/LOGO background.png" />
+    <link href="~/Stylesheet/Main_SS.css" rel="stylesheet" />
+    <link href="~/Stylesheet/Contact_SS.css" rel="stylesheet" />
+    <link href="~/Stylesheet/Product_SS.css" rel="stylesheet" />
+    <link href="~/Stylesheet/Checkout_SS.css" rel="stylesheet" />
+    <link href="~/Stylesheet/Footer_SS.css" rel="stylesheet" />
+    <link href="~/Stylesheet/UserRegistration_SS.css" rel="stylesheet" />
+    <link href="~/Stylesheet/UserLogin_SS.css" rel="stylesheet" />
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+</head>
+<body >
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <a href='@Url.Action("Index", "User" ,new { area = "AreaName" })'>
+                    <img style="width:40%;" src="~/Images/LOGO background.png" />
+                </a>
+            </div>
+
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="@Url.Action("Index", "User")">
+                            <span class="glyphicon glyphicon-home"></span>
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("About", "User")">
+                            <span class="glyphicon glyphicon-user"></span>
+                            About
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Products", "User")">
+                            <span class="glyphicon glyphicon-ice-lolly-tasted"></span>
+                            Products
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Contact", "User")">
+                            <span class="glyphicon glyphicon-earphone"></span>
+                            Contact Us
+                        </a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+
+                    @if (Session["u_id"] == null)
+                    {
+                        <li><a href="@Url.Action("Login", "User")"> Sign In</a></li>
+                        //@Html.ActionLink("Sign In", "Login", "User", null, new { @class = "ht" })
+
+                    }
+                    else
+                    {
+                        <li><a>@Session["u_name"]</a></li>
+                        <li><a href="@Url.Action("Signout", "User")"> Sign Out</a></li>
+                                        @*<a>@Session["u_name"]</a>
+                            @Html.ActionLink("Sign Out", "Signout", "User", null, new { @class = "ht" })*@
+                    }
+
+
+                    @if (Session["u_id"] == null)
+                    {
+                        <li><a href="@Url.Action("Register", "User")"> Sign Up</a></li>
+                        // @Html.ActionLink("Sign Up", "Register", "User", null, new { @class = "ht" })
+                    }
+
+
+                    @*<li>
+                        @if (Session["u_id"] == null)
+                        {
+                            @Html.ActionLink("Sign In", "Login", "User", null, new { @class = "ht" })
+
+                        }
+                        else
+                        {
+                            <a>@Session["u_name"]</a>
+                            @Html.ActionLink("Sign Out", "Signout", "User", null, new { @class = "ht" })
+                        }
+                    </li>
+                    <li>
+                        @if (Session["u_id"] == null)
+                        {
+                            @Html.ActionLink("Sign Up", "Register", "User", null, new { @class = "ht" })
+                        }
+
+                    </li>*@
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+
+    </div>
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+</body>
+</html>

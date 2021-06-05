@@ -1,0 +1,70 @@
+﻿.Ccontact {
+    font-family: poppins;
+    background: #0F2027;
+    background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);
+    background: linear-gradient(to right, #2C5364, #203A43, #0F2027); 
+
+    color: white;
+    padding-top: 40px;
+}
+
+
+    .Ccontact .c-heading {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        align-content: center;
+    }
+
+        .Ccontact .c-heading h2 {
+            font-size: 45px;
+            color:darksalmon;
+        }
+
+        .Ccontact .c-heading p {
+            font-size: 20px;
+        }
+
+
+.contact .box {
+    position: relative;
+    padding: 8px 70px;
+    display: flex;
+}
+
+    .contact .box .icon {
+        min-width: 60px;
+        height: 60px;
+        background: #CAC531;
+        background: -webkit-linear-gradient(to right, #F3F9A7, #CAC531);
+        background: linear-gradient(to right, #F3F9A7, #CAC531);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        font-size: 20px;
+        color: white;
+    }
+
+    
+
+.Ccontact h2 {
+    color :yellow;
+}
+
+.Ccontact .ccc-h .texts h4 {
+    font-size: 30px;
+    color:yellow;
+}
+
+.Ccontact .ccc-h .texts p {
+    font-size: 18px;
+    color: lightcoral;
+}
+
+
+
+.Cc-form {
+    font-size: 18px;
+    color:lightcoral;
+}

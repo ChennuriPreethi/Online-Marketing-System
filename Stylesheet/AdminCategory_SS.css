@@ -1,0 +1,29 @@
+﻿.category-form{
+    padding-top:5%;
+    padding-bottom:10%;
+    
+}
+
+.category-pad1 {
+    margin-top: -15%;
+    padding: 10%;
+
+}
+
+    .category-pad1 h2 {
+        color: #333;
+        font-weight: bold;
+        font-size: 30px;
+    }
+
+    .category-pad1 .royal1 {
+        margin-top: 10%;
+    }
+
+.how-img1 {
+    text-align: center;
+}
+
+    .how-img1 img {
+        width: 100%;
+    }

@@ -1,0 +1,45 @@
+﻿.footer-style {
+    background-color: black;
+    font-family: 'Times New Roman', Times, serif;
+    
+}
+.boxes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+}
+
+    .boxes h3 {
+        color: #fffc00;
+    }
+.footer-addr p a {
+    text-decoration: none;
+    color: lightgoldenrodyellow;
+    font-size: 15px;
+}
+
+.footer-soc1 a {
+    color: #3b5998;
+    font-size: 30px;
+    
+}
+.footer-soc2 a {
+    color: #bc2a8d;
+    font-size: 30px;
+}
+.footer-soc3 a {
+    color: #34bf49;
+    font-size: 30px;
+}
+.footer-phn p a {
+    color: lightgoldenrodyellow;
+    font-size: 15px;
+    text-decoration: none;
+}
+.footer-mail p a {
+    color: lightgoldenrodyellow;
+    font-size: 15px;
+    text-decoration: none;
+}
+
