@@ -1,0 +1,14 @@
+﻿.Registration-top {
+    padding-top: 3%;
+    font-family: 'Comic Sans MS';
+}
+
+    .Registration-top p {
+        font-size: 31px;
+        font-weight: 600;
+        padding-top: 20%;
+        color:mediumvioletred;
+    }
+.Registration-top img {
+    width: 100%;
+}

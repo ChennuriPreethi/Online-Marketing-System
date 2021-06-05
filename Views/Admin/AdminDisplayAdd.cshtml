@@ -1,0 +1,143 @@
+﻿@using PagedList.Mvc
+@model  PagedList.IPagedList<Royal_Project_3.Models.product>
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewBag.Title = "Display Products";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ViewCategory</title>
+    <link href="~/Content/pagination.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+
+
+@*<body style="background: #d9a7c7; background: -webkit-linear-gradient(to left, #fffcdc, #d9a7c7); background: linear-gradient(to left, #fffcdc, #d9a7c7); ">
+    <div class="container" style="height:1150px;">
+        <div class="row">
+            <h1 style="font-family:'Times New Roman', Times, serif;text-align:center;color:brown;">OUR PRODUCTS</h1>
+            <hr />
+            <div class="row" style="margin-bottom:40px;">
+                <div class="col-lg-8 col-md-8">
+                    @using (Html.BeginForm("AdminDisplayAdd", "Admin"))
+                    {
+                        <div class="navbar-form">
+
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Search" name="search" id="search" />
+                            </div>
+                            <button type="submit" class="btn btn-success">Search</button>
+                        </div>
+                    }
+                   
+                    <div class="row">
+                        @{int x = 0; }
+                        @if (Model != null)
+                        {
+                            foreach (var item in Model)
+                            {
+                                x++;
+                                <div class="col-lg-4 col-md-8" style="height:220px;margin-top:160px;">
+                                    <img src="@Url.Content(item.pro_image)" style="height:200px;width:100%;" />
+                                    <br />
+                                    <h4 style="font-size: 30px; color: #808080; font-family: 'Arial Rounded MT'; text-align: center; margin-top: 20px;">@Html.ActionLink(@item.pro_name, "AdminViewAdds", new { id = @item.pro_id })</h4>
+                                    <br />
+
+                                </div>
+                            }
+                        }
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-top:150px;">
+            <div id="container" style="margin-left:20px">
+                <p></p>
+                <p></p>
+                <div class="pagination">
+                    Page @(Model.PageCount<Model.PageNumber?0:Model.PageNumber)
+                    of @Model.PageCount @Html.PagedListPager(Model, page => Url.Action("AdminDisplayAdd", new { page }))
+                </div>
+            </div>
+        </div>
+    </div>
+</body>*@
+
+
+
+
+
+
+
+
+
+<body style="background: #d9a7c7; background: -webkit-linear-gradient(to left, #fffcdc, #d9a7c7); background: linear-gradient(to left, #fffcdc, #d9a7c7); ">
+    <div class="container" style="height:1150px;">
+        <div class="row" style="margin-bottom:40px;">
+            <h1 style="font-family:'Times New Roman', Times, serif;text-align:center;color:brown;">OUR PRODUCTS</h1>
+            <hr />
+
+            <div class="col-lg-8 col-md-8">
+                @using (Html.BeginForm("AdminDisplayAdd", "Admin"))
+                {
+                    <div class="navbar-form">
+
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search" name="search" id="search" />
+                        </div>
+                        <button type="submit" class="btn btn-success">Search</button>
+                    </div>
+                }
+            </div>
+
+        </div>
+        <div class="row">
+            @if (Model != null)
+            {
+                foreach (var item in Model)
+                {
+
+                    <div class="col-md-4" style="height:220px;margin-top:160px;">
+                        <img src="@Url.Content(item.pro_image)" style="height:200px;width:100%;" />
+                        <br />
+                        <h4 style="font-size: 30px; color: #808080; font-family: 'Arial Rounded MT'; text-align: center; margin-top: 20px;">@Html.ActionLink(@item.pro_name, "AdminViewAdds", new { id = @item.pro_id })</h4>
+                        <br />
+
+                    </div>
+                }
+            }
+
+        </div>
+   
+            
+        <div class="row">
+            <div style="margin-top:150px;">
+                <div id="container" style="margin-left:20px">
+                    <p></p>
+                    <p></p>
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4" style="text-align:center;">
+                        <div class="pagination">
+                            Page @(Model.PageCount<Model.PageNumber?0:Model.PageNumber)
+                            of @Model.PageCount @Html.PagedListPager(Model, page => Url.Action("AdminDisplayAdd", new { page }))
+                        </div>
+                    </div>
+                    <div class="col-md-4"></div>
+                </div>
+                </div>
+        </div>
+    </div>
+</body>
+
+
+
+
+
+</html>

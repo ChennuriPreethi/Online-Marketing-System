@@ -1,0 +1,106 @@
+﻿@model Royal_Project_3.Models.tbl_user
+@{
+    Layout = "~/Views/Shared/_LayoutNoFooterUser.cshtml";
+    ViewBag.Title = "Sign Up";
+ }
+
+<!DOCTYPE html>
+    <html>
+    <head>
+        <script>
+            addEventListener("load" function () {
+                setTimeout(hideURLbar, 0);
+            }, false);
+            function hideURLbar() {
+                window.scrollTo(0, 1);
+            }
+        </script>
+        
+    </head>
+    
+    @using (Html.BeginForm("Register", "User", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <body style="background-color:white">
+           
+                        
+                        <form action="#" method="post">
+                            <div class="container-fluid text-white Registration-top ">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <img style="height:510px;" src="~/Images/bg7.jpg" />
+                                    </div>
+
+                                    <div class="col-lg-6" style="padding-left:60px;">
+                                        <h1 >User Registration</h1>
+                                        <table>
+                                            <tr>
+                                                <br />
+                                                <td><label for="uname"><b>Username</b></label></td>
+                                                <td>
+                                                    @Html.TextBoxFor(x => x.u_name, "Name", new { @class = "form-control", @placeholder = "User Name" })
+
+                                                    <span style="color:red">@Html.ValidationMessageFor(x => x.u_name)</span><br />
+                                                </td>
+
+                                            </tr>
+
+                                            <tr>
+                                                <td><label for="uname"><b>Password</b></label></td>
+                                                <td>
+                                                    @Html.PasswordFor(x => x.u_password, new { @class = "form-control", @placeholder = "Password" })
+
+                                                    <span style="color:red">@Html.ValidationMessageFor(x => x.u_password)</span><br />
+                                                </td>
+                                            </tr>
+                                            <tr>
+
+                                                <td><label for="uname"><b>Mobile Number</b> </label></td>
+                                                <td>
+                                                    @Html.TextBoxFor(x => x.u_contact, new { @class = "form-control", @placeholder = "Contact" })
+
+                                                    <span style="color:red">@Html.ValidationMessageFor(x => x.u_contact)</span><br />
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><label for="uname"><b>Email ID</b></label></td>
+                                                <td>
+                                                    @Html.TextBoxFor(x => x.u_email, new { @class = "form-control", @placeholder = "Email" })
+
+                                                    <span style="color:red">@Html.ValidationMessageFor(x => x.u_email)</span><br />
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><label for="uname"><b>Address</b></label></td>
+                                                <td>
+                                                    @Html.TextBoxFor(x => x.u_addr, new { @class = "form-control", @placeholder = "Address" })
+
+                                                    <span style="color:red">@Html.ValidationMessageFor(x => x.u_addr)</span><br />
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><label for="uname"><b>User Image</b></label></td>
+                                                <td><input type="file" name="imgfile" id="imgfile" class="input" required /></td>
+                                            </tr>
+                                        </table>
+                                        
+                                        <br />
+                                        <input style="text-align:center;margin-left :15%;" type="submit" value="Submit" class="btn btn-success btn-block">
+                                        <br />
+                                        
+                                    </div>
+
+                                    <p>Let’s scoot into a world of scoops..!!!</p>
+
+                                </div>
+                                </div>
+                                </form>
+                        
+                    
+        </body>
+    }
+</html>
+
+@section Scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}

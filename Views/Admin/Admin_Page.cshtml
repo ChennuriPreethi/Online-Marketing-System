@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewBag.Title = "Admin Page";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<style>
+    .how-img5 {
+        text-align: center;
+    }
+
+    .how-img5 img {
+        width: 100%;
+        margin-top: 1%
+    }
+    .admin-page{
+        margin-top:10%;
+
+    }
+</style>
+
+<body style="background-color:#d1cfff">
+    <div class="container" style="height:150px;font-family:'Times New Roman', Times, serif">
+        <div class="row">
+            <div class="col-md-6 how-img5">
+                <img src="~/Images/1100bc66427803.5bda34038925f.gif"  />
+            </div>
+            
+            <div class="col-md-6 admin-page">
+                <h1><a style="text-decoration:none;color:coral;text-align:left" href="@Url.Action("View_Orders", "Admin")"><span class="glyphicon glyphicon-hand-right"></span> TOTAL ORDERS</a></h1><br /><br />
+                <h1><a style="text-decoration:none;color:coral;" href="@Url.Action("View_Contact_Us", "Admin")"><span class="glyphicon glyphicon-hand-right"></span> VIEW QUERIES</a></h1><br /><br />
+                <h1><a style="text-decoration:none;color:coral;" href="@Url.Action("ChartFromEF", "Admin")"><span class="glyphicon glyphicon-hand-right"></span> VIEW GRAPH</a></h1>
+            </div>
+        </div>
+    </div>
+</body>
+        
+            

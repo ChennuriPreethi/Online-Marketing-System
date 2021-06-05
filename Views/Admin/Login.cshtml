@@ -1,0 +1,61 @@
+﻿@model Royal_Project_3.Models.adminn
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewBag.Title = "Login";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+</head>
+<body class="bg-img">
+        @using (Html.BeginForm())
+        {
+            <form class="" action="" method="post">
+                <div class="container-fluid text-white pad-top">
+                    <div class="row">
+                        <div class="col-lg-4">
+
+                        </div>
+                        <div class="col-lg-4 bg-info">
+                            <h1 class="text-center ">Admin Login</h1>
+                            <table class="table">
+                                <tr>
+                                    <td><label for="uname"><b>Username</b></label></td>
+                                    <td>
+                                        @Html.TextBoxFor(x => x.ad_name, new { @class = "form-control", @placeholder = "Admin Name" })
+
+                                        <span style="color:red">@Html.ValidationMessageFor(x => x.ad_name)</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><label for="psw"><b>Password</b></label></td>
+                                    <td>
+                                        @Html.PasswordFor(x => x.ad_password, new { @class = "form-control", @placeholder = "Password" })
+
+                                        <span style="color:red">@Html.ValidationMessageFor(x => x.ad_password)</span>
+                                    </td>
+                                </tr>
+                            </table>
+                            <div class="form-group">
+                                <p style="color:red">@ViewBag.error</p>
+                            </div>
+                            <input style="text-align:center;margin-left :10%;" type="submit" value="Login" class="btn btn-success btn-block" />
+                            <br />
+                        </div>
+                        
+                        <div class="col-lg-4">
+
+                        </div>
+
+                    </div>
+                    </div>
+                        
+            </form>
+        }
+    
+</body>
+</html>

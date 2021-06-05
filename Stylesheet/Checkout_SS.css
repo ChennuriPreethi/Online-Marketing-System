@@ -1,0 +1,17 @@
+﻿.bg4 {
+    position: relative;
+    text-align: center;
+    color: black;
+    top: 20px;
+}
+
+
+.bg4_text {
+    width: 50%;
+    font-family: 'Courgette',cursive;
+    font-size: 30px;
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

@@ -1,0 +1,47 @@
+﻿@model  Royal_Project_3.Models.ad_view_model
+
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewBag.Title = "View Products";
+}
+<style>
+    .how-img2 {
+        text-align: center;
+    }
+
+        .how-img2 img {
+            width: 100%;
+            margin-top:20%
+        }
+</style>
+<body style="background: #43C6AC; background: -webkit-linear-gradient(to left, #F8FFAE, #43C6AC); background: linear-gradient(to left, #F8FFAE, #43C6AC);">
+    <div class="row">
+        <div class="col-md-6 how-img2">
+            <img src="@Url.Content(@Model.pro_image)" style="height:300px;" />
+        </div>
+        <div class="col-md-6" style="font-family:'Times New Roman', Times, serif; margin-top:10%;">
+            <h2 style="font-size:50px;color:darkorange">@Model.pro_name</h2>
+                <table width="60%" style="margin-left:10px; float:left; margin-top:10%; font-size:30px;" class="table-responsive table-bordered">
+
+                    <tr><td style="color:chocolate">Price </td><td style="color:deeppink">@Model.pro_price</td></tr>
+                    <tr><td style="color:chocolate">Category </td><td style="color:deeppink">@Model.cat_name</td></tr>
+                    <tr><td style="color:chocolate">Posted by </td><td style="color:deeppink">@Model.ad_name</td></tr>
+                    <tr>
+                        <td colspan="2">
+                            @if (Convert.ToInt32(Session["ad_id"]) == Convert.ToInt32(Model.pro_ad_id_fk))
+                            {
+                                using (Html.BeginForm("Add_Delete", "Admin", new { id = Model.pro_id }))
+                                {
+                                    <input type="submit" value="Delete" class="btn btn-danger " />
+                                    @*@Html.ActionLink("Delete", "Add_Delete", new { id = Model.pro_id }, new { @class = "btn btn-danger btn-sm" })*@
+                                }
+                            }
+                        </td>
+
+
+                    </tr>
+                </table>
+        </div>
+        
+    </div>
+</body>

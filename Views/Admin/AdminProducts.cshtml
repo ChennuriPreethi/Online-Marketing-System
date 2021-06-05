@@ -1,0 +1,67 @@
+﻿@using PagedList.Mvc
+@model  PagedList.IPagedList<Royal_Project_3.Models.category>
+
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewBag.Title = "Products";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ProductCategory</title>
+    
+</head>
+<body style="background: #ddd6f3; background: -webkit-linear-gradient(to left, #faaca8, #ddd6f3); background: linear-gradient(to left, #faaca8, #ddd6f3); ">
+    <div class="container" style="height:550px;font-family:'Times New Roman', Times, serif">
+        <div class="row">
+
+            @*<h1 style="text-align:center;margin-top:5%;">PRODUCTS</h1>*@
+
+            <div class="row" style="margin-bottom:40px;">
+                @if (Model != null)
+                {
+                    foreach (var item in Model)
+                    {
+                        <div class="col-lg-4 col-md-4" style="height:220px;margin-top:150px;">
+                            <img src="@Url.Content(item.cat_image)" style="height:250px;width:100%;" />
+                            <br />
+                            <h4 style="font-size:30px;color:#808080;font-family:'Arial Rounded MT';text-align:center;margin-top:20px;">@Html.ActionLink(@item.cat_name, "AdminDisplayAdd", new { id = @item.cat_id })</h4>
+                            <br />
+                        </div>
+                    }
+                }
+            </div>
+
+        </div>
+
+
+
+        <div class="row">
+            <div style="margin-top:150px;">
+                <div id="container" style="margin-left:20px">
+                    <p></p>
+                    <p></p>
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4" style="text-align:center;">
+                        <div class="pagination">
+                            Page @(Model.PageCount<Model.PageNumber?0:Model.PageNumber)
+                            of @Model.PageCount @Html.PagedListPager(Model, page => Url.Action("AdminProducts", new { page }))
+                        </div>
+                    </div>
+                    <div class="col-md-4"></div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        
+    </div>
+</body>
+</html>
+

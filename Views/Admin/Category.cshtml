@@ -1,0 +1,60 @@
+﻿@model Royal_Project_3.Models.category
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewBag.Title = "Category";
+}
+
+<!DOCTYPE html>
+    <html>
+    <head>
+        <script>
+            addEventListener("load" function () {
+                setTimeout(hideURLbar, 0);
+            }, false);
+            function hideURLbar() {
+                window.scrollTo(0, 1);
+            }
+        </script>
+    </head>
+    
+    @using (Html.BeginForm("Category", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <body style="background: #ad5389;background: -webkit-linear-gradient(to right, #3c1053, #ad5389); background: linear-gradient(to right, #3c1053, #ad5389); ">
+            <div class="category-pad1" >
+                <div class="row">
+                    <div class="royal1">
+                        <div class="col-md-6 how-img1">
+                            <img src="~/Images/bg8.jpg"  style="height:500px;"class="rounded-circle img-fluid" alt="" />
+                        </div>
+                        <div class="col-md-6" style="text-align :center;margin-top :130px;font-family:'Times New Roman', Times, serif;">
+                            <form class="" action="" method="post">                                                   
+                                <div class="bg-warning category-form" >
+                                    <center>
+                                        <h1>CATEGORY</h1>
+                                        <table>
+                                            <tr>
+                                                <td><p class="text-head">Category Name</p></td>
+                                                <td>
+                                                    @Html.TextBoxFor(x => x.cat_name, new { @class = "form-control", style = "width: 250px;", @placeholder = "Category Name" })
+                                                <br />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><p class="text-head">Image</p></td>
+                                            <td>
+                                                <input type="file" id="imgfile" class="input" name="imgfile" required />
+                                                <br />
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <input style="text-align:center;margin-left :5%;" type="submit" value="ADD" class="btn btn-success btn-block" />
+                                    </center>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </body>
+    }
+</html>
